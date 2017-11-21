@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://github.com/kasvijay/vapordocs"
 languageCode = "en-us"
 title = "Vijay K A S - iOS Developer && Explorer"
 theme = "beautifulhugo"
@@ -15,7 +15,7 @@ publishDir = "docs"
     favicon = "images/gt_favicon.png"
     DateForm = "January 2, 2006"
 
-    showSubheader = false
+    showSubheader = true
     showServices = true
     showRecentWorks = true
     showDownload = true
