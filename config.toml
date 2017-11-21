@@ -3,6 +3,9 @@ languageCode = "en-us"
 title = "Vijay K A S - iOS Developer && Explorer"
 theme = "beautifulhugo"
 publishDir = "docs"
+canonifyURLs = true
+contentDir = "content"
+buildDrafts = true
 
 [params]
     name = "Vijay K A S"

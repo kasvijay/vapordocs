@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Vapor 2.0 Postgres Integration with Swift 4 and Xcode 9.x</title>
+  <meta property="og:title" content="Vapor 2.0 Postgres Integration with Swift 4 and Xcode 9.x" />
+  <meta name="twitter:title" content="Vapor 2.0 Postgres Integration with Swift 4 and Xcode 9.x" />
+  <meta name="description" content="Step by step guid to install Vapor2.0 and Postgres with Xcode 9.x and Swift 4:  Requirements Vapor Project Heroku Deployment Postgres User and DB Creation Vapor Configuration  Requirements Brew Homebrew needs to be installed first to seamlessly install Vapor and Postgres. To install brew in Mac look at Homebrew
+##Postgresql Once brew is installed install Postgresql
+$ brew install postgres  Upon successful installation run the below command">
+  <meta property="og:description" content="Step by step guid to install Vapor2.0 and Postgres with Xcode 9.x and Swift 4:  Requirements Vapor Project Heroku Deployment Postgres User and DB Creation Vapor Configuration  Requirements Brew Homebrew needs to be installed first to seamlessly install Vapor and Postgres. To install brew in Mac look at Homebrew
+##Postgresql Once brew is installed install Postgresql
+$ brew install postgres  Upon successful installation run the below command">
+  <meta name="twitter:description" content="Step by step guid to install Vapor2.0 and Postgres with Xcode 9.x and Swift 4:  Requirements Vapor Project Heroku Deployment Postgres User and DB Creation Vapor Configuration  Requirements Brew …">
+  <meta name="author" content=""/>
+  <link href='https://kasvijay.github.io/vapordocs/images/gt_favicon.png' rel='icon' type='image/x-icon'/>
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://kasvijay.github.io/post/my-first-post/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vijay K A S - iOS Developer &amp;&amp; Explorer" />
+
+  <meta name="generator" content="Hugo 0.30.2" />
+  <link rel="canonical" href="https://kasvijay.github.io/post/my-first-post/" />
+  <link rel="alternate" href="" type="application/rss+xml" title="Vijay K A S - iOS Developer &amp;&amp; Explorer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://kasvijay.github.io/vapordocs/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://kasvijay.github.io/vapordocs/css/highlighting.css" />
+  <link rel="stylesheet" href="https://kasvijay.github.io/vapordocs/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://kasvijay.github.io/vapordocs/css/highlight.min.css" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://kasvijay.github.io/vapordocs/">Vijay K A S - iOS Developer &amp;&amp; Explorer</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="home" href="https://kasvijay.github.io/vapordocs/">home</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="blog" href="https://kasvijay.github.io/vapordocs/post/">blog</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Vapor 2.0 Postgres Integration with Swift 4 and Xcode 9.x</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on November 20, 2017
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<h3 id="step-by-step-guid-to-install-vapor2-0-and-postgres-with-xcode-9-x-and-swift-4">Step by step guid to install Vapor2.0 and Postgres with Xcode 9.x and Swift 4:</h3>
+
+<ul>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#vapor-project">Vapor Project</a></li>
+<li><a href="#heroku-deployment">Heroku Deployment</a></li>
+<li><a href="#postgres-user-and-db-creation">Postgres User and DB Creation</a></li>
+<li><a href="#vapor-configuration">Vapor Configuration</a></li>
+</ul>
+
+<h2 id="requirements">Requirements</h2>
+
+<h2 id="brew">Brew</h2>
+
+<p>Homebrew needs to be installed first to seamlessly install Vapor and Postgres. To install brew in Mac look at <a href="https://brew.sh/">Homebrew</a></p>
+
+<p>##Postgresql
+Once brew is installed install Postgresql</p>
+
+<pre><code class="language-bash">$ brew install postgres
+</code></pre>
+
+<p>Upon successful installation run the below command</p>
+
+<pre><code class="language-bash">$ brew tap homebrew/services
+</code></pre>
+
+<p>then start the Postgresql server by the following command</p>
+
+<pre><code class="language-bash">$ brew services start postgresql
+</code></pre>
+
+<h2 id="vapor-project">Vapor Project</h2>
+
+<p>Run the below command to check the compatibility with Vapor</p>
+
+<pre><code class="language-bash">$ curl -sL toolbox.qutheory.io | bash
+</code></pre>
+
+<p>based on the output of the above command install vapor. A general installation command is shown below</p>
+
+<pre><code class="language-bash">$ brew install vapor
+$ brew install vapor/tap/vapor
+$ vapor --help
+</code></pre>
+
+<p>The vapor &ndash;help should give you the options if the vapor installation is successful</p>
+
+<p>To create a vapor project type</p>
+
+<pre><code class="language-bash">$ vapor new ProjectName
+$ cd ProjectName
+$ vapor update
+</code></pre>
+
+<p>when the vapor update is done it will ask for creating a xcode project type &lsquo;y&rsquo; and press enter/return.
+Once the Xcode project is created it will ask whether you want to open it? Type &lsquo;y&rsquo; and press enter/return.</p>
+
+<p>Now try to build the project by pressing cmd+B. If the build is successful you are lucky else close
+the Xcode and go to terminal and delete the Package.resolved in the ProjectName folder with the command</p>
+
+<pre><code class="language-bash">$ rm Package.resolved
+</code></pre>
+
+<p>now enter the command</p>
+
+<pre><code class="language-bash">$ vapor update
+</code></pre>
+
+<p>Give &lsquo;y&rsquo; for all the questions and press enter/return.</p>
+
+<h2 id="heroku-deployment">Heroku Deployment</h2>
+
+<p>Install heroku using brew</p>
+
+<pre><code class="language-bash">$ brew install heroku
+</code></pre>
+
+<p>Login to Heroku</p>
+
+<pre><code class="language-bash">$ heroku Login
+</code></pre>
+
+<p>Now go to the ProjectName folder in terminal and run the below command and once the heroku
+build is ready, answer the questions with the answers given below:</p>
+
+<pre><code class="language-bash">$ vapor heroku init
+Would you like to provide a custom Heroku app name?
+y/n&gt; n
+Would you like to deploy to a region other than the US?
+y/n&gt; n
+https://&lt;App-Name&gt;.herokuapp.com/ | https://git.heroku.com/&lt;App-Name&gt;.git
+
+Would you like to provide a custom Heroku buildpack?
+y/n&gt; n
+Setting buildpack...
+Are you using a custom Executable name?
+y/n&gt; n
+Setting procfile...
+Committing procfile...
+Would you like to push to Heroku now?
+y/n&gt; y
+</code></pre>
+
+<h2 id="postgres-user-and-db-creation">Postgres User and DB Creation</h2>
+
+<p>Creating a user with password:</p>
+
+<pre><code class="language-bash">CREATE ROLE &lt;user_name&gt; WITH LOGIN PASSWORD '&lt;password&gt;';
+ALTER ROLE &lt;user_name&gt; CREATEDB;
+CREATE DATABASE hello;
+</code></pre>
+
+<h2 id="vapor-configuration">Vapor Configuration</h2>
+
+<p>In Package.swift add the following line in dependeies:</p>
+
+<pre><code class="language-bash">dependencies: [
+        .package(url: &quot;https://github.com/vapor/vapor.git&quot;, .upToNextMajor(from: &quot;2.1.0&quot;)),
+        .package(url: &quot;https://github.com/vapor/fluent-provider.git&quot;, .upToNextMajor(from: &quot;1.2.0&quot;)),
+        .package(url: &quot;https://github.com/vapor-community/postgresql-provider.git&quot;, .upToNextMajor(from: &quot;2.1.0&quot;)),
+    ],
+</code></pre>
+
+<p>and ensure that the targets has the appropriate dependencies as shown below</p>
+
+<pre><code class="language-bash">targets: [
+        .target(name: &quot;App&quot;, dependencies: [&quot;Vapor&quot;, &quot;FluentProvider&quot;, &quot;PostgreSQLProvider&quot;],
+
+</code></pre>
+
+<p>Add a Procfile in the root level where the Xcode-Project file exists and add the below contents</p>
+
+<pre><code class="language-bash">$ vim Procfile
+</code></pre>
+
+<p>Add the below line inside the Procfile</p>
+
+<pre><code class="language-bash">web: Run --env=production --port=$PORT --config:postgresql.url=$DATABASE_URL
+</code></pre>
+
+<p>Create a directory named secrets inside the Config directory and add the postgresql.json file as shown below</p>
+
+<pre><code class="language-bash">#From the root
+$ mkdir Config/secrets
+$ vim Config/secrets/postgresql.json
+    { &quot;url&quot; : &quot;psql://user:pass@url/db&quot; }
+</code></pre>
+
+<p>Close the Xcode project and run</p>
+
+<pre><code class="language-bash">vapor update
+vapor xcode
+</code></pre>
+
+<p>Open the project and check whether the PostgreSQLProvider is added under the dependencies folder in Xcode.
+If it is available then the installation is successful</p>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://kasvijay.github.io/vapordocs/">Vijay K A S - iOS Developer &amp;&amp; Explorer</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.30.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://kasvijay.github.io/vapordocs/js/main.js"></script>
+<script src="https://kasvijay.github.io/vapordocs/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="https://kasvijay.github.io/vapordocs/js/load-photoswipe.js"></script>
+
+
+
+  </body>
+</html>
+
