@@ -1,6 +1,6 @@
 baseURL = "https://kasvijay.github.io/vapordocs/"
 languageCode = "en-us"
-title = "Vijay K A S - iOS Developer && Explorer"
+title = "Vijay K A S - iOS Developer and Explorer"
 theme = "beautifulhugo"
 publishDir = "docs"
 canonifyURLs = true
