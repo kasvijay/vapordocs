@@ -1,4 +1,4 @@
-baseURL = "https://github.com/kasvijay/vapordocs/"
+baseURL = "kasvijay.github.io/vapordocs/"
 languageCode = "en-us"
 title = "Vijay K A S - iOS Developer && Explorer"
 theme = "beautifulhugo"

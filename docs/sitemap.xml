@@ -3,17 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://github.com/kasvijay/vapordocs/categories/</loc>
+    <loc>kasvijay.github.io/vapordocs/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://github.com/kasvijay/vapordocs/tags/</loc>
+    <loc>kasvijay.github.io/vapordocs/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://github.com/kasvijay/vapordocs/</loc>
+    <loc>kasvijay.github.io/vapordocs/</loc>
     <priority>0</priority>
   </url>
   
