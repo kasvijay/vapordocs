@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vijay K A S - iOS Developer and Explorer</title>
-    <link>https://kasvijay.github.io/vapordocs/</link>
+    <link>https://kasvijay.github.io/</link>
     <description>Recent content on Vijay K A S - iOS Developer and Explorer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 20 Nov 2017 17:49:38 +0530</lastBuildDate>
     
-	<atom:link href="https://kasvijay.github.io/vapordocs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kasvijay.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Vapor 2.0 Postgres Integration with Swift 4 and Xcode 9.x</title>
-      <link>https://kasvijay.github.io/vapordocs/post/my-first-post/</link>
+      <link>https://kasvijay.github.io/post/my-first-post/</link>
       <pubDate>Mon, 20 Nov 2017 17:49:38 +0530</pubDate>
       
-      <guid>https://kasvijay.github.io/vapordocs/post/my-first-post/</guid>
+      <guid>https://kasvijay.github.io/post/my-first-post/</guid>
       <description>Step by step guid to install Vapor2.0 and Postgres with Xcode 9.x and Swift 4:  Requirements Vapor Project Heroku Deployment Postgres User and DB Creation Vapor Configuration  Requirements Brew Homebrew needs to be installed first to seamlessly install Vapor and Postgres. To install brew in Mac look at Homebrew
 ##Postgresql Once brew is installed install Postgresql
 $ brew install postgres  Upon successful installation run the below command</description>
@@ -24,10 +24,10 @@ $ brew install postgres  Upon successful installation run the below command</des
     
     <item>
       <title>A</title>
-      <link>https://kasvijay.github.io/vapordocs/a/</link>
+      <link>https://kasvijay.github.io/a/</link>
       <pubDate>Mon, 20 Nov 2017 17:32:22 +0530</pubDate>
       
-      <guid>https://kasvijay.github.io/vapordocs/a/</guid>
+      <guid>https://kasvijay.github.io/a/</guid>
       <description>This is a.md file created to test</description>
     </item>
     
